@@ -6,6 +6,7 @@ import './chatting_page.dart' as chatting_page;
 import './main_page.dart' as main_page;
 import './attendance_page.dart' as attendance_page;
 
+
 Future<void> main() async {
   //FireBase 세팅
   WidgetsFlutterBinding.ensureInitialized();
