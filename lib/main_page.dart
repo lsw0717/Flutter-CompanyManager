@@ -20,6 +20,13 @@ class MainPage extends StatelessWidget {
                 decoration: BoxDecoration(color: Colors.blue),
               ),
               ListTile(
+                title: Text('출퇴근'),
+                trailing: Icon(Icons.navigate_next),
+                onTap: () {
+                  Navigator.pushNamed(context, '/attendance_page');
+                },
+              ),
+              ListTile(
                 title: Text('채팅 페이지'),
                 trailing: Icon(Icons.navigate_next),
                 onTap: () {
