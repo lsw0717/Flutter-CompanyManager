@@ -4,6 +4,7 @@ import 'firebase_options.dart';
 import './login_page.dart' as login_page;
 import './chatting_page.dart' as chatting_page;
 import './main_page.dart' as main_page;
+import './attendance_page.dart' as attendance_page;
 
 Future<void> main() async {
   //FireBase 세팅
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/chatting_page': (context) => chatting_page.ChattingPage(),
         '/main_page': (context) => main_page.MainPage(),
+        '/attendance_page': (context) => attendance_page.AttendancePage(),
       },
       title: 'Flutter',
       theme: ThemeData(),
