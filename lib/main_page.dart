@@ -10,14 +10,13 @@ class MainPage extends StatelessWidget {
         appBar: AppBar(
           title: Text('메인 페이지'),
         ),
-        drawer:  Drawer(
+        drawer: Drawer(
           child: ListView(
             children: [
               UserAccountsDrawerHeader(
                 accountName: Text('유저 이름'),
                 accountEmail: Text('유저 이메일'),
-                currentAccountPicture: CircleAvatar(
-                ),
+                currentAccountPicture: CircleAvatar(),
                 decoration: BoxDecoration(color: Colors.blue),
               ),
               ListTile(

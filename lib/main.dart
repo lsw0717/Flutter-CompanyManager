@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
-import './main_page.dart' as main_page;
+import './login_page.dart' as login_page;
 import './chatting_page.dart' as chatting_page;
+import './main_page.dart' as main_page;
 
 Future<void> main() async {
   //FireBase 세팅
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/chatting_page': (context) => chatting_page.ChattingPage(),
+        '/main_page': (context) => main_page.MainPage(),
       },
       title: 'Flutter',
       theme: ThemeData(),
@@ -37,8 +39,9 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return main_page.MainPage();
+    //로그인 페이지로 이동
+    return login_page.LoginPage();
   }
 }
 
-//상우
+
