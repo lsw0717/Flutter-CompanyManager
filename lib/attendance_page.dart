@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:network_info_plus/network_info_plus.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:app_settings/app_settings.dart';
 
 class AttendancePage extends StatefulWidget {
   const AttendancePage({Key? key}) : super(key: key);
@@ -48,8 +49,36 @@ class _AttendancePageState extends State<AttendancePage> {
     //핸드폰이 wifi에 연결 되었다면
     if (connectivityResult == ConnectivityResult.wifi) {
       var wifiName = await info.getWifiName(); // FooNetwork
-      print('wifi에 연결됨');
-      print(wifiName.toString());
+      print('wifi에 연결됨 / ${wifiName.toString()}');
+      //현재 연결한 wifi 이름이 '회사 wifi 이름(AndroidWifi)과 같을 때, 출근 가능
+      if (wifiName == 'AndroidWifi') {
+        print('출근 완료');
+      }
+      //현재 연결한 wifi 이름이 '회사 wifi 이름(AndroidWifi)과 다를 떄, 출근 불가능
+      else {
+        //회사 WIFI 연결 요청 Dialog 보여주기.
+        showDialog(
+            context: (context),
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: Text('회사 WIFI에 연결 해주세요 !!'),
+                actions: [
+                  TextButton(
+                    child: Text('WIFI 설정 열기'),
+                    onPressed: () {
+                      //WIFI설정창을 열어준다.
+                      AppSettings.openWIFISettings();
+                    },
+                  ),
+                  TextButton(
+                      child: Text('닫기'),
+                      onPressed: (){
+                        Navigator.pop(context);
+                      } )
+                ],
+              );
+            });
+      }
     }
   }
 
