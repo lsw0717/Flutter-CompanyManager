@@ -5,14 +5,17 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ElevatedButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/main_page');
-            },
-            child: Text('메인 페이지로 이동'))
-      ],
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/main_page');
+              },
+              child: Text('메인 페이지로 이동'))
+        ],
+      ),
     );
   }
 }
