@@ -5,6 +5,9 @@ import './login_page.dart' as login_page;
 import './chatting_page.dart' as chatting_page;
 import './main_page.dart' as main_page;
 import './attendance_page.dart' as attendance_page;
+import 'package:provider/provider.dart';
+import './provider.dart';
+
 
 
 Future<void> main() async {
@@ -21,17 +24,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      initialRoute: '/',
-      routes: {
-        '/chatting_page': (context) => chatting_page.ChattingPage(),
-        '/main_page': (context) => main_page.MainPage(),
-        '/attendance_page': (context) => attendance_page.AttendancePage(),
-      },
-      title: 'Flutter',
-      theme: ThemeData(),
-      debugShowCheckedModeBanner: false,
-      home: App(),
+    return MultiProvider(
+      providers: [ChangeNotifierProvider(create: (c) => AttendancePageStore()),],
+      child: MaterialApp(
+        initialRoute: '/',
+        routes: {
+          '/chatting_page': (context) => chatting_page.ChattingPage(),
+          '/main_page': (context) => main_page.MainPage(),
+          '/attendance_page': (context) => attendance_page.AttendancePage(),
+        },
+        title: 'Flutter',
+        theme: ThemeData(),
+        debugShowCheckedModeBanner: false,
+        home: App(),
+      ),
     );
   }
 }
