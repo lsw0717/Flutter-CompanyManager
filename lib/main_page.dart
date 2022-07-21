@@ -19,6 +19,7 @@ class MainPage extends StatelessWidget {
                 currentAccountPicture: CircleAvatar(),
                 decoration: BoxDecoration(color: Colors.blue),
               ),
+              //출퇴근 페이지 이동
               ListTile(
                 title: Text('출퇴근'),
                 trailing: Icon(Icons.navigate_next),
@@ -26,6 +27,7 @@ class MainPage extends StatelessWidget {
                   Navigator.pushNamed(context, '/attendance_page');
                 },
               ),
+              //채팅 페이지 이동
               ListTile(
                 title: Text('채팅 페이지'),
                 trailing: Icon(Icons.navigate_next),
