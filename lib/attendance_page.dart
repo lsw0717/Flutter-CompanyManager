@@ -154,12 +154,13 @@ class _AttendancePageState extends State<AttendancePage>
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              //버튼에 애니메이션주기
-              AnimatedRotation(
+        body: Stack(
+          children: [
+            //출퇴근 버튼
+            Positioned(
+              top: MediaQuery.of(context).size.height/9,
+              left: MediaQuery.of(context).size.width/4,
+              child: AnimatedRotation(
                 curve: Curves.easeOutExpo,
                 turns: turns,
                 duration: Duration(seconds: 1),
@@ -186,8 +187,8 @@ class _AttendancePageState extends State<AttendancePage>
                     ),
                     //Anumated Icon 파트
                     child: SizedBox(
-                      height: 150,
-                      width: 150,
+                      height: MediaQuery.of(context).size.width/2,
+                      width: MediaQuery.of(context).size.width/2,
                       child: Center(
                         child: AnimatedIcon(
                           icon: AnimatedIcons.play_pause,
@@ -200,8 +201,8 @@ class _AttendancePageState extends State<AttendancePage>
                   ),
                 ),
               ),
-            ],
-          ),
+            )
+          ],
         ),
       ),
     );
