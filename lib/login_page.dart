@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'login_page_join.dart';
+import 'login_page_search.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -29,18 +31,6 @@ class _LoginPageState extends State<LoginPage> {
                   image: DecorationImage(
                       image: AssetImage('assets/word.jpg'), fit: BoxFit.fill),
                 ),
-              ),
-            ),
-            //로그인 버튼
-            Positioned(
-              bottom: 100,
-              right: 0,
-              left: 0,
-              child: ElevatedButton(
-                child: Text('로그인 버튼'),
-                onPressed: () {
-                  Navigator.pushNamed(context, '/main_page');
-                },
               ),
             ),
             //배경
@@ -111,7 +101,8 @@ class _LoginPageState extends State<LoginPage> {
                               hintStyle:
                                   TextStyle(fontSize: 14, color: Colors.grey),
                               contentPadding: EdgeInsets.all(18),
-                            )),
+                            )
+                            ),
                             SizedBox(
                               height: 10,
                             ),
@@ -147,11 +138,70 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             Positioned(
-              top: 100,
-              child: Container(
-                height: 90,
-                width: 90,
-                decoration: BoxDecoration(),
+              top: 450,
+              right: 0,
+              left: 0,
+              child: Center(
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/main_page');
+                    },
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.grey,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    minimumSize: Size(270, 60),
+                  ),
+                  child: const Text('LOGIN',
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
+              )
+            ),
+            Positioned(
+              top: 550,
+              right: 0,
+              left: 0,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => LoginPageJoin()));
+                      },
+                    style: TextButton.styleFrom(
+                      primary: Colors.black
+                    ),
+                    child: const Text('회원가입',
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  //상우에게 물어봄
+                  // VerticalDivider(
+                  //thickness: 2,
+                  //color: Colors.grey,
+                  //),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => LoginPageSearch()));
+                    },
+                    style: TextButton.styleFrom(
+                        primary: Colors.black
+                    ),
+                    child: const Text('아이디/비밀번호 찾기',
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             )
           ],
